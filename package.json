@@ -1,0 +1,59 @@
+{
+  "name": "hack-a-thing-2-server",
+  "version": "3.0.0",
+  "description": "",
+  "author": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/eslint src",
+    "dev": "nodemon src/server.js --exec babel-node",
+    "start": "babel-node src/server.js",
+    "build": "babel src -d dist",
+    "prod": "yarn build; node dist/server.js"
+  },
+  "license": "ISC",
+  "engines": {
+    "node": ">=v14.8.0",
+    "npm": "6.14.5",
+    "yarn": "1.22.10"
+  },
+  "nodemonConfig": {
+    "signal": "SIGHUP",
+    "delay": "1500"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@sendgrid/mail": "^7.4.2",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "http": "^0.0.1-security",
+    "jwt-simple": "^0.5.6",
+    "mongoose": "^5.10.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.2.0",
+    "twilio": "^3.61.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.5",
+    "nodemon": "^2.0.4"
+  }
+}
