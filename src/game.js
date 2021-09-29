@@ -38,12 +38,13 @@ function hostCreateNewGame() {
 }
 
 function hostPrepareGame(gameId) {
+  console.log('prepare');
   const sock = this;
   const data = {
     mySocketId: sock.id,
     gameId,
   };
-  io.sockets.in(data.gameId).emit('beginNewGame', data);
+  io.sockets.in(gameId).emit('beginNewGame', data);
 }
 
 function hostStartGame(gameId) {
@@ -58,9 +59,11 @@ function hostNextRound(data) {
 }
 
 function playerJoinGame(data) {
+  console.log(data);
   const sock = this;
-  const room = gameSocket.rooms;
-  console.log(gameSocket.rooms);
+  const room = io.sockets.adapter.rooms.get(data.gameId);
+  console.log(io.sockets.adapter.rooms);
+  console.log(io.sockets.adapter.rooms.get(data.gameId));
 
   if (room !== undefined) {
     data.mySocketId = sock.id;
